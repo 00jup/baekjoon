@@ -29,22 +29,23 @@ void Array_print(int N, int M, int *Mat) /// 여기 이름은 바꿔주는 게 �
 int matrixMulti(int N, int M, int L, int A[][M], int B[][L])
 {
 
-  int Mat[N][L]; // Mat[N][L] = {0}; 못 하는 이유가 동적할당을 하기 위함인가?
+  int *Mat = (int *)malloc(N * L * sizeof(int)); // Mat[N][L] = {0}; 못 하는 이유가 동적할당을 하기 위함인가?
 
   for (int i = 0; i < N; i++)
   {
     for (int j = 0; j < L; j++)
     {
-      Mat[i][j] = 0; //////////왜 초기화 해야 되지? --> 아래에서 += 니까
+      *(Mat + i * M + j) = 0; //////////왜 초기화 해야 되지? --> 아래에서 += 니까
       for (int k = 0; k < M; k++)
       {
-        Mat[i][j] += A[i][k] * B[k][j];
-        printf("Mat[%d][%d] %d Mat 주소 : %p \n", i, j, Mat[i][j], Mat);
+        *(Mat + i * M + j) += A[i][k] * B[k][j];
+        printf("Mat[%d][%d]  Mat 주소 : %p \n", i, j, Mat);
       }
       printf("\n");
     }
   }
-  printf("\n\n\n d %p *Mat %d Mat[1][1] %d\n\n", Mat, *Mat, Mat[1][1]);
+
+  /// 여기 해도 되나?
   return Mat;
 }
 
@@ -66,10 +67,12 @@ int main()
   input(M, L, B);
   Array_print(M, L, B);
 
-  S = matrixMulti(N, M, L, A, B);
+  // S = matrixMulti(N, M, L, A, B);
+
+  // printf("\n S 주소 %p\n", matrixMulti(N, M, L, A, B));
   printf("\n S 주소 %p\n", S);
 
-  Array_print(N, L, S);
+  Array_print(N, L, matrixMulti(N, M, L, A, B));
 
   free(A);
   free(B);
