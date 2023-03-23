@@ -29,13 +29,13 @@ void Array_print(int N, int M, int Mat[][M]) /// 여기 이름은 바꿔주는 �
 void matrixMulti(int N, int M, int L, int A[][M], int B[][L])
 {
 
-  int Mat[N][L];
+  int Mat[N][L]; // Mat[N][L] = {0}; 못 하는 이유가 동적할당을 하기 위함인가?
 
   for (int i = 0; i < N; i++)
   {
     for (int j = 0; j < L; j++)
     {
-      Mat[i][j] = 0; //////////왜 초기화 해야 되지?
+      Mat[i][j] = 0; //////////왜 초기화 해야 되지? --> 아래에서 += 니까
       for (int k = 0; k < M; k++)
       {
         Mat[i][j] += A[i][k] * B[k][j];
@@ -52,9 +52,12 @@ int main()
   printf("N M L 입력\n");
   scanf("%d %d %d", &N, &M, &L); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
   int A[N][M], B[N][M], S[N][M];
+
   input(N, M, A);
   Array_print(N, M, A);
+
   input(M, L, B);
   Array_print(M, L, B);
+
   matrixMulti(N, M, L, A, B);
 }
