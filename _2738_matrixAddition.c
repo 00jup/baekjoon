@@ -22,9 +22,11 @@ void Array_print(int N, int M, int Mat[][M])
     }
     printf("\n");
   }
+  printf("\n");
 }
-void matrixAddition(int N, int M, int A[][M], int B[][M])
-{
+
+void matrixAddition(int N, int M, int A[N][M], int B[N][M])
+{ ////int *A[M] int *B[M] 하면 안 되는지 다른 걸 받을 방법은 없을까?
 
   int Mat[N][M];
 
@@ -45,6 +47,8 @@ int main()
   scanf("%d %d", &N, &M); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
   int A[N][M], B[N][M], S[N][M];
   input(N, M, A);
+  Array_print(N, M, A);
   input(N, M, B);
+  Array_print(N, M, B);
   matrixAddition(N, M, A, B);
 }

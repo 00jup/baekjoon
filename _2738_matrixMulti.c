@@ -12,39 +12,49 @@ void input(int N, int M, int Mat[][M])
   }
   printf("\n");
 }
-void Array_print(int N, int M, int Mat[][M])
+void Array_print(int N, int M, int Mat[][M]) /// 여기 이름은 바꿔주는 게 좋은 건가?
 {
+
   for (int i = 0; i < N; i++)
   {
     for (int j = 0; j < M; j++)
     {
-      printf("%2d", Mat[i][j]);
+      printf("%4d", Mat[i][j]);
     }
     printf("\n");
   }
+  printf("\n");
 }
-void matrixAddition(int N, int M, int A[][M], int B[][M])
+
+void matrixMulti(int N, int M, int L, int A[][M], int B[][L])
 {
 
-  int Mat[N][M];
+  int Mat[N][L];
 
   for (int i = 0; i < N; i++)
   {
-    for (int j = 0; j < M; j++)
+    for (int j = 0; j < L; j++)
     {
-      Mat[i][j] = A[i][j] + B[i][j];
+      Mat[i][j] = 0; //////////왜 초기화 해야 되지?
+      for (int k = 0; k < M; k++)
+      {
+        Mat[i][j] += A[i][k] * B[k][j];
+        printf("%d = %d + %d \n", Mat[i][j], A[i][k], B[k][j]);
+      }
     }
   }
-  Array_print(N, M, Mat);
+  Array_print(N, L, Mat);
 }
 
 int main()
 {
-  int N, M;
-  printf("입력\n");
-  scanf("%d %d", &N, &M); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
+  int N, M, L;
+  printf("N M L 입력\n");
+  scanf("%d %d %d", &N, &M, &L); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
   int A[N][M], B[N][M], S[N][M];
   input(N, M, A);
-  input(N, M, B);
-  matrixAddition(N, M, A, B);
+  Array_print(N, M, A);
+  input(M, L, B);
+  Array_print(M, L, B);
+  matrixMulti(N, M, L, A, B);
 }
