@@ -1,32 +1,33 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void input(int N, int M, int Mat[][M])
+void input(int N, int M, int *Mat)
 {
   for (int i = 0; i < N; i++)
   {
     for (int j = 0; j < M; j++)
     {
-      scanf("%d", &Mat[i][j]);
-      ///////////////////////&&&&&&&&&&&&&&&&&&&&&&&&&
+      scanf("%d", (Mat + i * M + j));
+      printf("Mat + i * M+ j = %d ", *(Mat + i * M + j));
     }
   }
   printf("\n");
 }
-void Array_print(int N, int M, int Mat[][M]) /// 여기 이름은 바꿔주는 게 좋은 건가?
+void Array_print(int N, int M, int *Mat) /// 여기 이름은 바꿔주는 게 좋은 건가?
 {
 
   for (int i = 0; i < N; i++)
   {
     for (int j = 0; j < M; j++)
     {
-      printf("%4d", Mat[i][j]);
+      printf("%4d", *(Mat + i * M + j));
     }
     printf("\n");
   }
   printf("\n");
 }
 
-void matrixMulti(int N, int M, int L, int A[][M], int B[][L])
+int matrixMulti(int N, int M, int L, int A[][M], int *B)
 {
 
   int Mat[N][L]; // Mat[N][L] = {0}; 못 하는 이유가 동적할당을 하기 위함인가?
@@ -38,12 +39,14 @@ void matrixMulti(int N, int M, int L, int A[][M], int B[][L])
       Mat[i][j] = 0; //////////왜 초기화 해야 되지? --> 아래에서 += 니까
       for (int k = 0; k < M; k++)
       {
-        Mat[i][j] += A[i][k] * B[k][j];
-        printf("%d = %d + %d \n", Mat[i][j], A[i][k], B[k][j]);
+        Mat[i][j] += A[i][k] * (*(B + k * M + j));
+        printf("%d = %d + %d \n", Mat[i][j], A[i][k], (*(B + k * M + j)));
       }
     }
+    printf("\n\n\n d %d u %u x %x *Mat %d\n\n", Mat, Mat, Mat, *Mat);
   }
-  Array_print(N, L, Mat);
+  printf("\n\n\n d %d u %u x %x *Mat %d\n\n", Mat, Mat, Mat, *Mat);
+  return Mat;
 }
 
 int main()
@@ -51,8 +54,10 @@ int main()
   int N, M, L;
   printf("N M L 입력\n");
   scanf("%d %d %d", &N, &M, &L); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
-  int B[N][M], S[N][M];
-  int *A[N] = (int *)malloc(M * sizeof(int));
+
+  int *A = (int *)malloc(N * M * sizeof(int));
+  int *B = (int *)malloc(N * M * sizeof(int));
+  int *S = (int *)malloc(N * M * sizeof(int));
 
   input(N, M, A);
   Array_print(N, M, A);
@@ -60,5 +65,10 @@ int main()
   input(M, L, B);
   Array_print(M, L, B);
 
-  matrixMulti(N, M, L, A, B);
+  *S = matrixMulti(N, M, L, A, B);
+  Array_print(N, M, S);
+  free(A);
+  free(B);
+  free(S);
+  return 0;
 }
