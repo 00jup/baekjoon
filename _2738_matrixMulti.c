@@ -46,12 +46,17 @@ void matrixMulti(int N, int M, int L, int A[][M], int B[][L])
   Array_print(N, L, Mat);
 }
 
+//  9  12  15
+// 19  26  33
+// 29  40  51
+
 int main()
 {
+
   int N, M, L;
   printf("N M L 입력\n");
   scanf("%d %d %d", &N, &M, &L); ///////////;;;;;;;;;;;;;;;;;;;;;;;;;
-  int A[N][M], B[N][M], S[N][M];
+  int A[N][M], B[M][L], S[N][M];
 
   input(N, M, A);
   Array_print(N, M, A);
