@@ -1,20 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int count_home(int k, int n)
+int c_h(int k, int n)
 {
   if (n == 1)
     return 1;
   if (k == 0)
     return n;
-  return (count_home(k - 1, n) + count_home(k, n - 1));
+  return (c_h(k - 1, n) + c_h(k, n - 1));
 }
 int main()
 {
-  int k, n;
-  int result;
 
-  scanf("%d %d", &k, &n);
+  int result, T;
 
-  result = count_home(k, n);
-  printf("%d\n\n", count_home(k, n));
+  scanf("%d", &T);
+  int *k = (int *)malloc(sizeof(int) * T);
+  int *n = (int *)malloc(sizeof(int) * T);
+  for (int i = 0; i < T; i++)
+  {
+    scanf("%d", &k[i]);
+    scanf("%d", &n[i]);
+  }
+  for (int i = 0; i < T; i++)
+  {
+    printf("%d\n", c_h(k[i], n[i]));
+  }
 }
+// result = c_h(k, n);
