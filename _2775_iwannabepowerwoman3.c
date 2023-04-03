@@ -1,20 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int count_home(int k, int n)
+int c_h(int k, int n)
 {
-  int count = 0;
+  if (n == 1)
+    return 1;
   if (k == 0)
-  {
     return n;
-  }
-  else
-  {
-    for (int i = 0; i < n; i++)
-    {
-      count += count_home(k - 1, i);
-    }
-  }
+  return (c_h(k - 1, n) + c_h(k, n - 1));
 }
 
 int main()
@@ -29,11 +22,13 @@ int main()
 
   for (int i = 0; i < T; i++)
   {
-    scanf("%d", &k[i]);
-    scanf("%d", &n[i]);
+    scanf("%d", k + i);
+    scanf("%d", n + i);
   }
+  printf("\n\n\n");
   for (int i = 0; i < T; i++)
   {
-    printf("%d\n", count_home(k[i], n[i]));
+    // printf("%d\n", c_h(*(k + i), *(n + i)));
+    printf("%d\n", c_h(*k + i, *n + i));
   }
 }
