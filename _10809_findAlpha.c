@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 
@@ -13,18 +14,11 @@ int main()
 
   for (int i = 0; i < strlen(S); i++)
   {
-    for (char j = 'a'; j <= 'z'; j++)
+    if (result[S[i] - 'a'] == -1)
     {
-      if (S[i] == j)
-      {
-        if (result[j - 97] != -1)
-          break;
-
-        result[j - 97] = i;
-        break;
-      }
+      result[S[i] - 'a'] = i; // S[i] - 'a'는 알파벳의 순서
     }
-    }
+  }
 
   for (int i = 0; i < 26; i++)
     printf("%d ", result[i]);
