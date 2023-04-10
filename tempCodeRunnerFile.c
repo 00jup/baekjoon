@@ -1,9 +1,9 @@
-if (S[i] == j)
-      // {
-      //   if (S[i] != -1)
-      //     break;
+scanf("%d %d", &N, &M);
+  // char board[N][M];
 
-      //   printf("%c ", S[i]);
-      //   result[j] = i;
-      //   break;
-      // }
+  // for (int j = 0; j < M; j++)
+  // {
+  //   scanf("%s", board[N]);
+  // }
+
+  // printf("\n");
