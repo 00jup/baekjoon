@@ -11,7 +11,7 @@ int main()
   int M, N;
   scanf("%d %d", &N, &M);
   char board[N][M];
-  char result_board1[N][M], result_board2[N][M];
+  char result_board1[8][10], result_board2[8][10];
   int A = N > M ? N : M;
   int result1[A];
   int result2[A];
@@ -20,20 +20,15 @@ int main()
   for (int j = 0; j < N; j++)
     scanf("%s", board[j]);
 
-  for (int i = 0; i < 8; i *= 2)
-  {
-
-    strcpy(result_board1[i], "BWBWBWBW");
-    // strcpy(result_board1[2 * i + 1], "WBWBWBWB");
-    strcpy(result_board2[2 * i], "WBWBWBWB");
-    strcpy(result_board2[2 * i + 1], "BWBWBWBW");
-    // result_board2[2 * i][2 * j] = "W";
-    // result_board2[2 * i + 1][2 * j + 1] = "B";
-  }
-  printf("\n%s\n", result_board1[0]);
   for (int i = 0; i < 4; i++)
   {
-    // printf("%s", result2[i]);
+
+    strcpy(&result_board1[i * 2], "BWBWBWBW");
+    strcpy(&result_board1[2 * i + 1], "WBWBWBWB");
+    strcpy(&result_board2[2 * i], "WBWBWBWB");
+    strcpy(&result_board2[2 * i + 1], "BWBWBWBW");
+    // result_board2[2 * i][2 * j] = "W";
+    // result_board2[2 * i + 1][2 * j + 1] = "B";
   }
 
   for (int i = 0; i <= N - 8; i++)
@@ -42,25 +37,26 @@ int main()
     count2 = 0;
     for (int j = 0; j <= M - 8; j++)
     { /// M-8은 가로 최소값
-      for (int k = 0; k < 8; k++)
+      for (int k = i; k < i + 8; k++)
       {
-        for (int n = 0; n < 8; n++)
+        for (int n = j; n < j + 8; n++)
         {
-          if (board[k][n] == result_board1[k][n])
+          if (board[k][n] != result_board1[k][n])
             count1++;
-          if (board[k][n] == result_board2[k][n])
+          if (board[k][n] != result_board2[k][n])
             count2++;
         }
       }
-      result1[N - 8 > M - 8 ? i : j] = count1;
-      result2[N - 8 > M - 8 ? i : j] = count2;
+      result1[j] = count1;
+      result2[j] = count2;
     }
+    printf("aaaaaaaaaaaaaaaaaaaaa%d\n", i);
   }
 
-  for (int i = 0; i < A - 8; i++)
+  for (int i = 0; i <= A - 8; i++)
   {
-    printf("%d", result1[i]);
-    printf("%d", result2[i]);
+    printf("%d\n", result1[i]);
+    printf("%d\n", result2[i]);
   }
   // 홀수인 경우
 
