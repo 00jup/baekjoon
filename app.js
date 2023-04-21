@@ -6,5 +6,5 @@ app.get("/", function (req, res) {
   res.send("Hello World !!");
 });
 app.listen(3000, function () {
-  console.log("3000 port listen !!");
+  console.log("3000 port listen !");
 });
