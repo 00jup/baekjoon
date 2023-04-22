@@ -1,14 +1,26 @@
 {
   "name": "js_baekjoon",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"js_baekjoon\"",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "\"ParkJeonguk\"",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/00jup/js_baekjoon.git"
+  },
+  "keywords": [
+    "[\"node\"",
+    "\"js\"]"
+  ],
+  "bugs": {
+    "url": "https://github.com/00jup/js_baekjoon/issues"
+  },
+  "homepage": "https://github.com/00jup/js_baekjoon#readme"
 }
