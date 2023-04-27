@@ -3,11 +3,6 @@ let rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-let N;
-rl.on("line", function (line) {
-  N = Number(line);
-});
-rl.close();
 
 function hanoi_t(N, from, tmp, to) {
   if (N >= 1) {
@@ -17,4 +12,13 @@ function hanoi_t(N, from, tmp, to) {
   }
   return;
 }
-hanoi_t(N, "A", "B", "C");
+
+hanoi_t(3, "A", "B", "C");
+
+let N = Number(rl.on);
+rl.on("line", function (line) {
+  N = Number(line);
+}).on("close", function () {
+  hanoi_t(N, "A", "B", "C");
+  process.exit();
+});
