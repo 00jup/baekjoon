@@ -1,6 +1,6 @@
 let fs = require("fs");
 let rl = fs.readFileSync("input.txt").toString().split(" ");
-
+// /dev/stdin
 function hanoi_t(N, from, tmp, to) {
   if (N >= 1) {
     hanoi_t(N - 1, from, to, tmp);
