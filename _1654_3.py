@@ -6,7 +6,6 @@ for _ in range(K):
   number.append(int(input()))
 min = 0
 max = max(number)
-# def binarysearch(min, mid, max):
 mid = int((max+min)//2)
 while True: 
   count = 0

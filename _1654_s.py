@@ -4,7 +4,7 @@ K, N = map(int, input().split())
 number = []
 for _ in range(K):
   number.append(int(input()))
-min = 1 #
+min = 1
 max = max(number)
 
 while min <= max: 
