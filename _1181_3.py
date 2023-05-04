@@ -10,3 +10,4 @@ word = list(set(word))
 for i in word:
     print(i)
 
+ 

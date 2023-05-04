@@ -4,11 +4,11 @@ K, N = map(int, input().split())
 number = []
 for _ in range(K):
   number.append(int(input()))
-min = 0
+min = 1 #
 max = max(number)
-# def binarysearch(min, mid, max):
+
 while min <= max: 
-  mid = int((max+min)//2)
+  mid = (max+min)//2
   count = 0
   for i in range(K):
     count += number[i] // mid

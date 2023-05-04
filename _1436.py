@@ -1,5 +1,7 @@
-N = int(input())
-number = 0
+
+import sys
+N = int(sys.stdin.readline())
+number = 1
 count = 0
 while count < N :
   number += 1

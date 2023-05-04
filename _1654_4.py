@@ -7,16 +7,14 @@ for _ in range(K):
 min = 0
 max = max(number)
 # def binarysearch(min, mid, max):
-while min <= max: 
-  mid = int((max+min)//2)
+mid = int((max+min)//2)
+while True: 
   count = 0
   for i in range(K):
     count += number[i] // mid
   if count >= N:
-    min = mid+1
-  else:
-    max = mid-1
-
-print(max)
+    print(mid)
+    break
+  mid = int((min+mid)//2)
 
   
