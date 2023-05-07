@@ -6,9 +6,9 @@ tree = {}
 for n in range(N):
   root, left, right = input().strip().split()
   tree[root] = [left, right]
-#pXPrint(tree[0][])
-print(tree['A'][0])
-print(tree['A'][1])
+#print(tree[0][])
+#print(tree['A'][0])
+#print(tree['A'][1])
 
 
 def inorderTraveral(root):
