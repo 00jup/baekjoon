@@ -2,7 +2,6 @@ import sys
 input = sys.stdin.readline
 N = int(input())
 b = input().strip().split(' ')
-
 tree = {}
 
 for i in range(N):
