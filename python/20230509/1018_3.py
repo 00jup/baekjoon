@@ -29,8 +29,8 @@ blBoard = [
 
 def whBoard_check(k, l):
     count = 0
-    for x in range(N):
-        for y in range(M):
+    for x in range(8):
+        for y in range(8):
             if chessboard[x+k][y+l] != whBoard[x][y]:
                 count += 1
     return count
@@ -46,18 +46,21 @@ def blBoard_check(k, l):
 
 
 def solution():
-    for k in range(N-8):
-        for l in range(M-8):
+    result = 12345
+    #####################
+    for k in range(N-7):
+        for l in range(M-7):
+            # 이 부분 때문에 못 풀었..
             A = whBoard_check(k, l)
             B = blBoard_check(k, l)
+            print(A, B)
             if A < B:
                 tmp = A
-            else:
+            elif B < A:
                 tmp = B
-
-        if result >= tmp:
+        if result > tmp:
             result = tmp
-    print(result)
+        print(result)
 
 
 solution()
