@@ -1,32 +1,29 @@
-import queue
 import sys
 input = sys.stdin.readline
 
-que = queue.Queue()
-
 N = int(input())
-
+queue = []
+i = 0
 for _ in range(N):
     ans = input().split()
     if ans[0] == 'push':
-        que.put(int(ans[1]))
-    # print(ans[0], ans[1]) split을 해야 함.
+        queue.append(ans[1])
     elif ans[0] == 'front':
-        if len(que) == 0:
+        if len(queue) == 0:
             print(-1)
         else:
-            print(que[0])
+            print(queue[0])
     elif ans[0] == 'size':
-        print(que.qsize())
+        print(len(queue))
     elif ans[0] == 'pop':
-        print(que.get())
+        print(queue.pop(0))
     elif ans[0] == 'back':
-        if len(que) == 0:
+        if len(queue) == 0:
             print(-1)
         else:
-            print(que[-1])
+            print(queue[-1])
     elif ans[0] == 'empty':
-        if que.empty():
+        if len(queue) == 0:
             print(1)
         else:
             print(0)
