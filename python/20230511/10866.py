@@ -30,6 +30,12 @@ for _ in range(N):
         else:
             print(0)
     elif ans[0] == 'front':
-        print(deq[0])
+        if len(deq) == 0:
+            print(-1)
+        else:
+            print(deq[0])
     elif ans[0] == 'back':
-        print(deq[-1])
+        if len(deq) == 0:
+            print(-1)
+        else:
+            print(deq[-1])
