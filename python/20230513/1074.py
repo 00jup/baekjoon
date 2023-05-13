@@ -8,6 +8,8 @@ count = 0
 
 def search(num, r, c):
     global count
+    if num == 0:
+        return
     if 2**num/2 < r:
         if 2**num/2 < c:
             count += 3*(2**(num-1))
@@ -24,9 +26,6 @@ def search(num, r, c):
 
         elif 2**num/2 > c:
             search(num-1, r, c)
-
-    if num == 0:
-        return
 
 
 search(N, row, col)
