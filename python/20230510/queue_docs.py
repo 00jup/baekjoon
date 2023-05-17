@@ -19,6 +19,10 @@ threading.Thread(target=worker, daemon=True).start()
 for item in range(30):
     q.put(item)
 
+print(q.front)
+print(q.front)
+print(q.front)
+
 # Block until all tasks are done.
 q.join()
 print('All work completed')
