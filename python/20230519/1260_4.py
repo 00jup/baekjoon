@@ -25,7 +25,7 @@ def bfs(v):
             if not visited_bfs[i] and graph[v][i]:
                 q.append(i)
                 visited_bfs[i] = 1
-
+#########에버랜드
 
 def dfs(v):
     visited_dfs[v] = 1
