@@ -16,4 +16,3 @@ for i in range(N):
 
 print(paper[0][1])
 print(paper[1])
-3
