@@ -3,7 +3,7 @@ input = sys.stdin.readline
 
 N, r, c = map(int, input().split())
 count = 0
-€
+
 
 def recursion(size, x, y):
     global count
