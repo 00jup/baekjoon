@@ -14,9 +14,7 @@ def solution(players, callings):
     for j in range(len(callings)):
         for i in range(len(players)):
             if players[i] == callings[j]:
-                tmp = players[i-1]
-                players[i-1] = players[i]
-                players[i] = tmp
+                players[i-1], players[i] = players[i], players[i-1]
 
     return players
 
