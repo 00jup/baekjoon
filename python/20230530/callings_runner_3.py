@@ -2,8 +2,6 @@ import sys
 
 input = sys.stdin.readline
 
-players = []
-callings = []
 
 players = input().split()
 callings = input().split()
@@ -21,6 +19,8 @@ def solution(players, callings):
                      1], index_result[rank] = index_result[rank], index_result[rank-1]
 
     return list(index_result.values())
+
+# https://somjang.tistory.com/entry/Programmers-%EB%8B%AC%EB%A6%AC%EA%B8%B0-%EA%B2%BD%EC%A3%BC-Python-featChatGPT
 
 
 print(solution(players, callings))
