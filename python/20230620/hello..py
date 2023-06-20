@@ -6,9 +6,6 @@ tree = {}
 for n in range(N):
     root, left, right = input().strip().split()
     tree[root] = [left, right]
-# print(tree[0][])
-# print(tree['A'][0])
-# print(tree['A'][1])
 
 print(tree)
 
@@ -39,3 +36,15 @@ print('')
 inorderTraversal('0')
 print('')
 postorderTraversal('0')
+
+
+# 입력할 때 . 이 포함되어 있어야 함.
+# ##ex
+# 0 1 2
+# 1 3 4
+# 2 5 6
+# 3 . .
+# 4 . .
+# 5 . .
+# 6 . .
+# . 이 없으면 언제 끝날지 모르기 때문이다.
