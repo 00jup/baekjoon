@@ -19,7 +19,7 @@ void Array_print(int N, int M, int *Mat)
   {
     for (int j = 0; j < M; j++)
     {
-      printf("%4d", *(Mat + i * M + j));
+      printf("%4d", Mat[i * M + j]);
     }
     printf("\n");
   }

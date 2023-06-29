@@ -37,7 +37,7 @@ int main()
     count2 = 0;
     for (int j = 0; j <= M - 8; j++)
     { /// M-8은 가로 최소값
-      for (int k = i; k < i + 8; k++)
+      for (int k = i; k < i + 8; k++
       {
         for (int n = j; n < j + 8; n++)
         {
