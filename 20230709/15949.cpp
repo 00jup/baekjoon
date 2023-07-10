@@ -33,6 +33,7 @@ void dfs(int cnt)
 
 int main()
 {
-    cin >> n >> m;
+    n = 4;
+    m = 3;
     dfs(0);
 }
