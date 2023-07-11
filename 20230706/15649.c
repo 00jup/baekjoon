@@ -4,4 +4,6 @@ int main()
 {
     int N, M;
     scanf("%d %d", &N, &M);
+
+    
 }
