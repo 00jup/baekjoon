@@ -11,6 +11,6 @@ int main()
     area = w * h;
     perimeter = 2 * (w + h);
 
-    printf("사각형의 둘레 = %.1lf", perimeter);
-    printf("사각형의 면적 = %.2lf", area);
+    printf("사각형의 둘레 = %.1lf\n", perimeter);
+    printf("사각형의 면적 = %.2lf\n", area);
 }

@@ -12,5 +12,5 @@ int main()
     scanf("%lf", &won);
 
     dollar = won / exchangeRate;
-    printf("원화 %d원은 %lf달러입니다.\n", won, dollar);
+    printf("원화 %.0lf원은 %lf달러입니다.\n", won, dollar);
 }
