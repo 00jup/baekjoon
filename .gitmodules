@@ -1,0 +1,3 @@
+[submodule "temp-c"]
+	path = temp-c
+	url = https://github.com/00jup/baekjoon.c.git
