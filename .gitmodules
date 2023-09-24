@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 [submodule "temp-c"]
 	path = temp-c
 	url = https://github.com/00jup/baekjoon.c.git
+=======
+[submodule "c"]
+	path = c
+	url = https://github.com/00jup/baekjoon.c.git
+>>>>>>> branch_from_baekjoon_c
